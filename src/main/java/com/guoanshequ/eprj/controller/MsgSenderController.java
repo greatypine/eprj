@@ -1,10 +1,11 @@
-package com.daishuhua.eprj.controller;
+package com.guoanshequ.eprj.controller;
 
 import java.net.URLEncoder;
 import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.guoanshequ.eprj.config.EprjConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -16,8 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.daishuhua.eprj.config.EprjConfig;
 
 @RestController
 public class MsgSenderController {

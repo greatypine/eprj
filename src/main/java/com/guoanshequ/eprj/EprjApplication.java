@@ -1,4 +1,4 @@
-package com.daishuhua.eprj;
+package com.guoanshequ.eprj;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

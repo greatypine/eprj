@@ -1,4 +1,4 @@
-package com.daishuhua.eprj;
+package com.guoanshequ.eprj;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

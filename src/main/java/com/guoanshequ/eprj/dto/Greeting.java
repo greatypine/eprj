@@ -1,4 +1,4 @@
-package com.daishuhua.eprj.dto;
+package com.guoanshequ.eprj.dto;
 
 public class Greeting {
 	
