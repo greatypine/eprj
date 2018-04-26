@@ -3,4 +3,4 @@ server:
   servlet:
     context-path: /eprj
 eprj:
-  permit-clients: 219.159.20.64, 124.65.98.198
+  permit-clients: 219.159.20.64, 124.65.98.198,10.16.31.125
