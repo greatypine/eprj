@@ -53,7 +53,7 @@ public class MsgSenderController {
 
 		String resultString = null;
 		
-		if (Arrays.asList(eprjConfig.getPermitClients()).contains(request.getRemoteAddr())) {
+		//if (Arrays.asList(eprjConfig.getPermitClients()).contains(request.getRemoteAddr())) {
 			try {
 				final String requestUrlTpl = "http://q.hl95.com:8061/?username=gasjyz&password=Gasj0121&message=%s&phone=%s&epid=123743&linkid=&subcode=";
 				String messageContent_gb2312 = URLEncoder.encode(messageContent, "gb2312");
@@ -69,9 +69,9 @@ public class MsgSenderController {
 				e.printStackTrace();
 				resultString = "Error:" + e.getMessage();
 			}
-		} else {
-			resultString = "access forbidden";
-		}
+		    //} else {
+			//	resultString = "access forbidden";
+			//}
 
 		return resultString;
 	}
