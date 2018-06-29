@@ -8,13 +8,23 @@ import org.springframework.stereotype.Component;
 public class EprjConfig {
 	
 	private String[] permitClients;
-
+    
+	private String daqWebAddress;
+	
 	public String[] getPermitClients() {
 		return permitClients;
 	}
 
 	public void setPermitClients(String[] permitClients) {
 		this.permitClients = permitClients;
+	}
+
+	public String getDaqWebAddress() {
+		return daqWebAddress;
+	}
+
+	public void setDaqWebAddress(String daqWebAddress) {
+		this.daqWebAddress = daqWebAddress;
 	}
 	
 	

@@ -3,4 +3,6 @@ server:
   servlet:
     context-path: /eprj
 eprj:
-  permit-clients: 219.159.20.64, 124.65.98.198,10.16.31.125,219.159.20.83
+  permit-clients: 219.159.20.64, 124.65.98.198,10.16.31.125,219.159.20.83,10.16.31.191,10.16.31.92
+  daqWebAddress: https://data.guoanshequ.com/daqWeb
+  
