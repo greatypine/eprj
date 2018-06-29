@@ -44,7 +44,8 @@ public class MsgReceiveController {
 			@RequestParam("msgContent") String messageContent,@RequestParam("spNumber") String spNumber) {
 		
 		if (file == null) {
-		    file = new File(request.getServletContext().getRealPath("/") + File.separator+".." + File.separator+"sms-receive.log");
+		    //file = new File(request.getServletContext().getRealPath("/") + File.separator+".." + File.separator+"sms-receive.log");
+			file = new File("D:/sms-receive.log");
 		}
 		
 		System.out.println("-------------"+request.getServletContext().getRealPath("/") + File.separator+".." + File.separator+"sms-receive.log");
@@ -57,13 +58,13 @@ public class MsgReceiveController {
 			try {
 				String url  = eprjConfig.getDaqWebAddress()+"/replyMessage.action?phone="+phoneNumber+"&msgContent="+messageContent+"&spNumber="+spNumber;
 				resultString = HttpClientUtil.doGet(url);
-				date = new SimpleDateFormat("yyyy-MM-dd").format(new Date())+"\t"+phoneNumber+"\t"+resultString+"\t"+messageContent+System.getProperty("line.separator")+"success";
+				date = new SimpleDateFormat("yyyy-MM-dd").format(new Date())+"\t"+phoneNumber+"\t"+resultString+"\t"+messageContent+"\t"+"ok"+System.getProperty("line.separator");
 				FileUtils.writeStringToFile(file, date, Charset.defaultCharset(), true);
 			} catch (Exception e) {
 				e.printStackTrace();
 				resultString = "<!DOCTYPE html><html><head><meta charset='utf-8'><title>result</title></head><body><h1>"+e.getMessage()+"</h1></body></html>";
 				try {
-					date = new SimpleDateFormat("yyyy-MM-dd").format(new Date())+"\t"+phoneNumber+"\t"+resultString+"\t"+messageContent+System.getProperty("line.separator")+"\t"+"fail";
+					date = new SimpleDateFormat("yyyy-MM-dd").format(new Date())+"\t"+phoneNumber+"\t"+resultString+"\t"+messageContent+"\t"+"fail"+System.getProperty("line.separator");
 					FileUtils.writeStringToFile(file, date, Charset.defaultCharset(), true);
 				} catch (Exception e2) {
 					e2.printStackTrace();
