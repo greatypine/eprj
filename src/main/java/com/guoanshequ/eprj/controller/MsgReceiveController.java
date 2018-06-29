@@ -51,21 +51,25 @@ public class MsgReceiveController {
 		System.out.println("-------------"+request.getServletContext().getRealPath("/") + File.separator+".." + File.separator+"sms-receive.log");
 		
 		logger.info(String.format("\nmessage detail:\nphone:\t%s\nmessage:\t%s\n", phoneNumber, messageContent));
-
+		String remoteAddress = request.getRemoteAddr();
 		String resultString = null;
 		String date="";
+		StringBuilder logSb = null;
 //		if (Arrays.asList(eprjConfig.getPermitClients()).contains(request.getRemoteAddr())) {
 			try {
+				logSb = new StringBuilder();
 				String url  = eprjConfig.getDaqWebAddress()+"/replyMessage.action?phone="+phoneNumber+"&msgContent="+messageContent+"&spNumber="+spNumber;
 				resultString = HttpClientUtil.doGet(url);
-				date = new SimpleDateFormat("yyyy-MM-dd").format(new Date())+"\t"+phoneNumber+"\t"+resultString+"\t"+messageContent+"\t"+"ok"+System.getProperty("line.separator");
-				FileUtils.writeStringToFile(file, date, Charset.defaultCharset(), true);
+				logSb.append("\r\n").append(new SimpleDateFormat("yyyy-MM-dd").format(new Date())).append("&&&").append(phoneNumber).append("&&&").append(messageContent).append("&&&").append(resultString).append("&&&").append(remoteAddress).append("&&&").append("ok");
+				
+				FileUtils.writeStringToFile(file, logSb.toString(), Charset.defaultCharset(), true);
 			} catch (Exception e) {
 				e.printStackTrace();
-				resultString = "<!DOCTYPE html><html><head><meta charset='utf-8'><title>result</title></head><body><h1>"+e.getMessage()+"</h1></body></html>";
 				try {
-					date = new SimpleDateFormat("yyyy-MM-dd").format(new Date())+"\t"+phoneNumber+"\t"+resultString+"\t"+messageContent+"\t"+"fail"+System.getProperty("line.separator");
-					FileUtils.writeStringToFile(file, date, Charset.defaultCharset(), true);
+					logSb = new StringBuilder();
+					logSb.append("\r\n").append(new SimpleDateFormat("yyyy-MM-dd").format(new Date())).append("&&&").append(phoneNumber).append("&&&").append(messageContent).append("&&&").append("error:"+e.getMessage().substring(0,5)).append("&&&").append(remoteAddress).append("&&&").append("fail");
+
+					FileUtils.writeStringToFile(file, logSb.toString(), Charset.defaultCharset(), true);
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
