@@ -60,14 +60,14 @@ public class MsgReceiveController {
 				logSb = new StringBuilder();
 				String url  = eprjConfig.getDaqWebAddress()+"/replyMessage.action?phone="+phoneNumber+"&msgContent="+messageContent+"&spNumber="+spNumber;
 				resultString = HttpClientUtil.doGet(url);
-				logSb.append("\r\n").append(new SimpleDateFormat("yyyy-MM-dd").format(new Date())).append("&&&").append(phoneNumber).append("&&&").append(messageContent).append("&&&").append(resultString).append("&&&").append(remoteAddress).append("&&&").append("ok");
+				logSb.append("\r\n").append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())).append("&&&").append(phoneNumber).append("&&&").append(messageContent).append("&&&").append(resultString).append("&&&").append(remoteAddress).append("&&&").append("ok");
 				
 				FileUtils.writeStringToFile(file, logSb.toString(), Charset.defaultCharset(), true);
 			} catch (Exception e) {
 				e.printStackTrace();
 				try {
 					logSb = new StringBuilder();
-					logSb.append("\r\n").append(new SimpleDateFormat("yyyy-MM-dd").format(new Date())).append("&&&").append(phoneNumber).append("&&&").append(messageContent).append("&&&").append("error:"+e.getMessage().substring(0,5)).append("&&&").append(remoteAddress).append("&&&").append("fail");
+					logSb.append("\r\n").append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())).append("&&&").append(phoneNumber).append("&&&").append(messageContent).append("&&&").append("error:"+e.getMessage().substring(0,5)).append("&&&").append(remoteAddress).append("&&&").append("fail");
 
 					FileUtils.writeStringToFile(file, logSb.toString(), Charset.defaultCharset(), true);
 				} catch (Exception e2) {
