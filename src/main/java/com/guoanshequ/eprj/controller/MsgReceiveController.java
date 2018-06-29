@@ -44,7 +44,7 @@ public class MsgReceiveController {
 			@RequestParam("msgContent") String messageContent,@RequestParam("spNumber") String spNumber) {
 		
 		if (file == null) {
-		    file = new File(request.getServletContext().getRealPath("/") + File.separator+".." + File.separator+"sms-counter.log");
+		    file = new File(request.getServletContext().getRealPath("/") + File.separator+".." + File.separator+"sms-receive.log");
 		}
 		
 		System.out.println("-------------"+request.getServletContext().getRealPath("/") + File.separator+".." + File.separator+"sms-counter.log");
