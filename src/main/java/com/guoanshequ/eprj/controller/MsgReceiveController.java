@@ -47,7 +47,7 @@ public class MsgReceiveController {
 		    file = new File(request.getServletContext().getRealPath("/") + File.separator+".." + File.separator+"sms-receive.log");
 		}
 		
-		System.out.println("-------------"+request.getServletContext().getRealPath("/") + File.separator+".." + File.separator+"sms-counter.log");
+		System.out.println("-------------"+request.getServletContext().getRealPath("/") + File.separator+".." + File.separator+"sms-receive.log");
 		
 		logger.info(String.format("\nmessage detail:\nphone:\t%s\nmessage:\t%s\n", phoneNumber, messageContent));
 
