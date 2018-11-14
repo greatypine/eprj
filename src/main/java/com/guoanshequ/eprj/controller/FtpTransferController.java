@@ -35,6 +35,8 @@ public class FtpTransferController {
     @Value("${eprj.ndrc.fileDir}")
     private String remoteFileDir;
 
+
+
     @RequestMapping(value = "/upload", consumes = "multipart/form-data", method = RequestMethod.POST)
     public void transfer2Ftp(@RequestParam("file")MultipartFile file) {
 
