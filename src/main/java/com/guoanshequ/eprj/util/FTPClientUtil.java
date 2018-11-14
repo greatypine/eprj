@@ -102,6 +102,7 @@ public class FTPClientUtil {
         try {
             fileInputStream =new  FileInputStream(localFile);
             ftpClient.changeWorkingDirectory(remoteFileDir);
+            ftpClient.enterLocalPassiveMode();
             uploadResult = ftpClient.storeFile(remoteFile, fileInputStream);
             System.out.printf("upload result: %s.\n", uploadResult);
             fileInputStream.close();
