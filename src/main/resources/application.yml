@@ -10,5 +10,9 @@ eprj:
     userName: GASQ
     passWord: 123456
     fileDir: /
+  sqlserver:
+    url: jdbc:sqlserver://39.107.69.242:1433;DatabaseName=Enjoy_Hq
+    user: test
+    password: gasq1qaz
 
   
