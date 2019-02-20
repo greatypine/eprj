@@ -8,7 +8,7 @@ eprj:
   ndrc:
     ftpServer: 103.83.44.206
     userName: GASQ
-    passWord: 123456
+    passWord: Y4eQaC9l0EWr0D5m
     fileDir: /
   sqlserver:
     url: jdbc:sqlserver://39.107.69.242:1433;DatabaseName=Enjoy_Hq
